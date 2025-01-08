@@ -2,8 +2,7 @@ import numpy as np
 
 
 def calculate(list):
-    arr_list = np.array(list)
-    reshaped_arr = arr_list.reshape(3, 3)
+    reshaped_arr = np.array(list).reshape(3, 3)
     column_mean = np.mean(reshaped_arr, axis=0)
     row_mean = np.mean(reshaped_arr, axis=1)
     flattened_mean = np.mean(reshaped_arr)

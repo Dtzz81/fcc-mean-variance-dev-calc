@@ -61,6 +61,9 @@ def sum(list):
     return total_sum
 
 def calculate(list):
+    if len(list) != 9:
+        raise ValueError("List must contain nine numbers.")
+
     calculations ={
         'mean': mean(list),
         'variance': variance(list),

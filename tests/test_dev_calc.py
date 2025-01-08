@@ -1,11 +1,17 @@
 import pytest
 from source.dev_calc import std, variance, mean, max, min, sum, calculate
 
-def test_mean():
+
+@pytest.fixture
+def sample_list():
+    return [0,1,2,3,4,5,6,7,8]
+
+
+def test_mean(sample_list):
     # arrange
-    list = [0,1,2,3,4,5,6,7,8]
+    #list = [0,1,2,3,4,5,6,7,8] moved to fixture
     # act
-    result = mean(list)
+    result = mean(sample_list)
     expected_mean =[
             [3.0, 4.0, 5.0],  # convention to start with columns
             [1.0, 4.0, 7.0],
@@ -14,44 +20,38 @@ def test_mean():
      # assert
     assert result == expected_mean
 
-def test_variance():
-    list = [0,1,2,3,4,5,6,7,8]
-    result = variance(list)
+def test_variance(sample_list):
+    result = variance(sample_list)
     expected_variance =[[6.0, 6.0, 6.0], [0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 6.666666666666667]
 
     assert result == expected_variance
 
-def test_standard_deviation():
-    list = [0,1,2,3,4,5,6,7,8]
-    result = std(list)
+def test_standard_deviation(sample_list):
+    result = std(sample_list)
     expected_std =[[2.449489742783178, 2.449489742783178, 2.449489742783178], [0.816496580927726, 0.816496580927726, 0.816496580927726], 2.581988897471611]
 
     assert result == expected_std
 
-def test_max():
-    list = [0,1,2,3,4,5,6,7,8]
-    result = max(list)
+def test_max(sample_list):
+    result = max(sample_list)
     expected_max =[[6, 7, 8], [2, 5, 8], 8]
 
     assert result == expected_max
 
-def test_min():
-    list = [0,1,2,3,4,5,6,7,8]
-    result = min(list)
+def test_min(sample_list):
+    result = min(sample_list)
     expected_min = [[0, 1, 2], [0, 3, 6], 0]
 
     assert result == expected_min
 
-def test_sum():
-    list = [0,1,2,3,4,5,6,7,8]
-    result = sum(list)
+def test_sum(sample_list):
+    result = sum(sample_list)
     expected_sum = [[9, 12, 15], [3, 12, 21], 36]
 
     assert result == expected_sum
 
 def test_calculate():
-    list = [0,1,2,3,4,5,6,7,8]
-    result = calculate(list)
+    result = calculate(sample_list)
     expected_result = {
   'mean': [[3.0, 4.0, 5.0], [1.0, 4.0, 7.0], 4.0],
   'variance': [[6.0, 6.0, 6.0], [0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 6.666666666666667],

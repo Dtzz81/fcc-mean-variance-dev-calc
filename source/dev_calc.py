@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def calculate(list):
     reshaped_arr = np.array(list).reshape(3, 3)
     column_mean = np.mean(reshaped_arr, axis=0)

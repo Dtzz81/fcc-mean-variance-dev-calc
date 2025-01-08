@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "mean-variance-dev-calc"
+version = "0.1.0"
+description = ""
+authors = ["Dtzz81 <denise.turkova@madetech.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+numpy = "^2.2.1"
+tree = "^0.2.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
+
+[[tool.poetry.packages]]
+include = "source"
+from = "."
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
